@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>連立方程式ドリル</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>連立方程式ドリル</h1>
+      <div class="controls">
+        <label for="level">難易度:</label>
+        <select id="level" aria-label="難易度">
+          <option value="easy">初級（係数 −5〜5、解は整数）</option>
+          <option value="normal">中級（係数 −9〜9、解は整数）</option>
+        </select>
+        <button id="newBtn" class="btn secondary">新しい問題</button>
+      </div>
+    </header>
+
+    <section id="quiz-card" class="card" aria-live="polite">
+      <div class="equations" id="equations">
+        <!-- 例：
+          2x + 3y = 7
+          -x + 4y = 10
+        -->
+      </div>
+
+      <form id="answerForm" class="answer" autocomplete="off">
+        <div class="field">
+          <label for="ansX">x = </label>
+          <input id="ansX" name="ansX" inputmode="decimal" placeholder="例) 3 または 1/2" />
+        </div>
+        <div class="field">
+          <label for="ansY">y = </label>
+          <input id="ansY" name="ansY" inputmode="decimal" placeholder="例) -2 または -3/4" />
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn">採点</button>
+          <button type="button" id="nextBtn" class="btn" disabled>次の問題</button>
+          <button type="button" id="hintBtn" class="btn ghost">解説を表示</button>
+        </div>
+      </form>
+
+      <div id="feedback" class="result" aria-live="polite"></div>
+
+      <details id="solutionBox" class="solution">
+        <summary>解説</summary>
+        <div id="solutionSteps"></div>
+      </details>
+    </section>
+
+    <section class="status">
+      <span>進捗: <strong id="progress">0問</strong></span>
+      <span>正答数: <strong id="correctCount">0</strong></span>
+      <span>正答率: <strong id="accuracy">0%</strong></span>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>© 連立方程式ドリル（学習用・個人情報は保存しません／進捗はブラウザにのみ保存）</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+``
